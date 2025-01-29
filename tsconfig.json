@@ -19,7 +19,8 @@
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": false,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": true
   },
   "include": ["src"],
   "exclude": ["node_modules"],
@@ -29,3 +30,4 @@
     }
   ]
 }
+

@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
-
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid';  // Updated import for Grid
 import Pagination from '@mui/material/Pagination';
 import Typography from '@mui/material/Typography';
 
@@ -25,7 +24,7 @@ const GENDER_OPTIONS = [
 
 const CATEGORY_OPTIONS = [
   { value: 'all', label: 'All' },
-  { value: 'shose', label: 'Shose' },
+  { value: 'shoes', label: 'Shoes' },
   { value: 'apparel', label: 'Apparel' },
   { value: 'accessories', label: 'Accessories' },
 ];
@@ -49,7 +48,7 @@ const COLOR_OPTIONS = [
   '#FFC107',
 ];
 
-const defaultFilters = {
+const defaultFilters: FiltersProps = {
   price: '',
   gender: [GENDER_OPTIONS[0].value],
   colors: [COLOR_OPTIONS[4]],
@@ -58,10 +57,8 @@ const defaultFilters = {
 };
 
 export function ProductsView() {
-  const [sortBy, setSortBy] = useState('featured');
-
-  const [openFilter, setOpenFilter] = useState(false);
-
+  const [sortBy, setSortBy] = useState<string>('featured');
+  const [openFilter, setOpenFilter] = useState<boolean>(false);
   const [filters, setFilters] = useState<FiltersProps>(defaultFilters);
 
   const handleOpenFilter = useCallback(() => {
@@ -90,7 +87,8 @@ export function ProductsView() {
         Products
       </Typography>
 
-      <CartIcon totalItems={8} />
+      {/* Dynamically updated Cart Icon */}
+      <CartIcon totalItems={_products.length} />
 
       <Box
         display="flex"
@@ -130,15 +128,22 @@ export function ProductsView() {
         </Box>
       </Box>
 
+      {/* Display Products */}
       <Grid container spacing={3}>
         {_products.map((product) => (
-          <Grid key={product.id} xs={12} sm={6} md={3}>
+          <Grid key={product.id} item xs={12} sm={6} md={3}> {/* Updated Grid component usage */}
             <ProductItem product={product} />
           </Grid>
         ))}
       </Grid>
 
-      <Pagination count={10} color="primary" sx={{ mt: 8, mx: 'auto' }} />
+      {/* Dynamic Pagination */}
+      <Pagination
+        count={Math.ceil(_products.length / 10)} // Update pagination count dynamically
+        color="primary"
+        sx={{ mt: 8, mx: 'auto' }}
+      />
     </DashboardContent>
   );
 }
+

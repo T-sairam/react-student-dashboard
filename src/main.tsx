@@ -1,9 +1,11 @@
+// src/main.tsx
 import ReactDOM from 'react-dom/client';
 import { Suspense, StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
-import App from './app';
+import App from './app'; // Import without extension
+
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +15,7 @@ root.render(
   <StrictMode>
     <HelmetProvider>
       <BrowserRouter>
-        <Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
           <App />
         </Suspense>
       </BrowserRouter>
