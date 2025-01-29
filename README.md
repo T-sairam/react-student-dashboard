@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Minimal UI ([Free version](https://free.minimals.cc/))
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -46,3 +47,6 @@ Distributed under the [MIT](https://github.com/minimal-ui-kit/minimal.free/blob/
 ## Contact us
 
 Email: support@minimals.cc
+=======
+# react-student-dashboard
+>>>>>>> 575d3f75c8caa411fc8a7fa111a26da14a4590d4
